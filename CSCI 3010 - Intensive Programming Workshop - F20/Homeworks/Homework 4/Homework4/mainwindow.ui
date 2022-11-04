@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>777</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>160</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="turn">
+       <property name="text">
+        <string>Turn: 0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="population">
+       <property name="text">
+        <string>Population: </string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>781</width>
+      <height>501</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stepButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>621</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Step</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="playButton">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>620</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Play</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>620</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="speedSlider">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>600</y>
+      <width>481</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="slowerLabel">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>610</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Slower</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="fasterLabel">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>610</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Faster</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="speedLabel">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>640</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Speed: 0</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>680</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Random</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Tumbler</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Glider</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Star</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="colorButton">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>680</y>
+      <width>281</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Set Color</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuGame">
+    <property name="title">
+     <string>Game</string>
+    </property>
+   </widget>
+   <addaction name="menuGame"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

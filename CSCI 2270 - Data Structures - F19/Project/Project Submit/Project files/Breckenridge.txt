@@ -1,0 +1,100 @@
+T-Bar,Lift
+Rocky Mountain Superchair,Lift
+Yu-Ju Lee Run,Lift
+Colorado Superchair,Lift
+Chair 5,Lift
+Chair 6,Lift
+Peak 8 SuperConnect,Lift
+Rip's Ride,Lift
+Zagrodzki Lift,Lift
+Trygve's Platter,Lift
+Beaver Run Superchair,Lift
+Mercury Superchair,Lift
+Kids Carpet 4,Lift
+El Dorado Tow,Lift
+Zendo,Lift
+El Dorado Carpet C,Lift
+El Dorado Carpet D,Lift
+Quicksilver Super6,Lift
+Head Lift,Lift
+Camelback Platter,Lift
+Triple,Lift
+A Chair,Lift
+Kensho Superchair,Lift
+Falcon Superchair,Lift
+Six Passenger,Lift
+Independence SuperChair,Lift
+Gondola,Lift
+Castle Carpet 2,Lift
+Surface Lift,Lift
+Dyersville,Green Run
+Lower 4 O'Clock,Green Run
+Park Lane Park,Green Run
+Power Line,Green Run
+Springmeier,Green Run
+Swinger,Green Run
+Trygves,Green Run
+Twister,Green Run
+A Lift Line,Green Run
+Eldorado,Green Run
+Frontier,Green Run
+Lower American,Green Run
+Lower Lehman,Green Run
+Middle Lehman,Green Run
+Red Rover,Green Run
+Sawmill,Green Run
+Silverthorne,Green Run
+Snowflake,Green Run
+Sundown Access,Green Run
+Barton's Breezeway,Blue Run
+Bliss,Blue Run
+Daydream,Blue Run
+Delirium,Blue Run
+Déjà vu,Blue Run
+Elysian Fields,Blue Run
+Euphoria,Blue Run
+Lost Cabin,Blue Run
+Lost Horizon,Blue Run
+Fort Mary B,Blue Run
+Lincoln Mdws,Blue Run
+Monte Cristo,Blue Run
+Pioneer,Blue Run
+Claimjumper,Blue Run
+Crescendo,Blue Run
+Crosscut,Blue Run
+Dukes,Blue Run
+Middle 4 O'Clock,Blue Run
+Northstar,Blue Run
+Pathfinder,Blue Run
+Upper 4 O'Clock,Blue Run
+Intuition,Black Run
+Wanderlust,Black Run
+Xanadu,Black Run
+Lower Forget Me Not,Black Run
+Ore Bucket,Black Run
+Summit,Black Run
+Callie's Alley,Black Run
+Frosty's,Black Run
+Little Johnny,Black Run
+Lower Boneyard,Black Run
+Rendezvous,Black Run
+Rounder's,Black Run
+Spruce,Black Run
+Goodbye Girl,Double Black
+Mach 1,Double Black
+Southern Cross,Double Black
+Tiger,Double Black
+Lake Chutes,Double Black
+Whales Tail,Double Black
+Appaloosa,Double Black
+Black Hawk,Double Black
+Dark Rider,Double Black
+Elan,Double Black
+Mustang,Double Black
+Oatmeal Bowl,Double Black
+Quiver,Double Black
+Trinity,Double Black
+Bonanza,Terrain Park
+Freeway Park,Terrain Park
+Freeway Pipe,Terrain Park
+Trygves Park,Terrain Park

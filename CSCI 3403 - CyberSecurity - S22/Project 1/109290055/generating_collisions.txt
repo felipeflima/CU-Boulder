@@ -1,0 +1,40 @@
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ xxd -r -p file1.hex > file1
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ xxd -r -p file2.hex > file2
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ md5sum file1 file2
+79054025255fb1a26e4bc422aef54eb4  file1
+79054025255fb1a26e4bc422aef54eb4  file2
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ sha256sum file1 file2
+8d12236e5c4ed9f4e790db4d868fd5c399df267e18ff65c1107c328228cffc98  file1
+b9fef2a8fc93b05e7701e97196fda6c4fbeea25ff8e64fdfee7015eca8fa617d  file2
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ time ./fastcoll -
+Generating first block: ...
+Generating second block: S11.................
+use 'md5sum md5_data*' check MD5
+
+real    0m1.546s
+user    0m1.379s
+sys     0m0.008s
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ xxd -p md5_data1
+8cbfee4534b6c9e87e3e21385cae39b50c4703c19b6b69c11cf6362d3818
+20b837deb3e8c0497ca68f4259d9f2dd3d0bd9cad892491e7fadbcf162c5
+a5ddba0c868d6ff426b2b2a038168f40553f457345f3f67d266e098f76ab
+f3df4f112dc1d909b92a03e793d6e8afeff0ab508b096b9af62a57ba8655
+cbf8084dff5c83c5
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ xxd -p md5_data2
+8cbfee4534b6c9e87e3e21385cae39b50c4703419b6b69c11cf6362d3818
+20b837deb3e8c0497ca68f4259d9f25d3e0bd9cad892491e7fadbcf16245
+a5ddba0c868d6ff426b2b2a038168f40553f457345f3f6fd266e098f76ab
+f3df4f112dc1d909b92a03e793d6e8afeff0abd08a096b9af62a57ba8655
+cbf808cdff5c83c5
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ md5sum md5_data1 md5_data2
+7b5c2f6987db847f38831b3a19b5cc6e  md5_data1
+7b5c2f6987db847f38831b3a19b5cc6e  md5_data2
+
+jovyan@jupyter-feli0059:~/CSCI - 3403/project1/MD5 Collisions$ sha256sum md5_data1 md5_data2
+f26c9566eafb0e00c52b6cb0a9aed775d18f68659549eb32e7a377e49eabb6d3  md5_data1
+0884f0702cf743a7e258585d47c09f99071f11ab224bbbd5bfa3b39abf11dbda  md5_data2

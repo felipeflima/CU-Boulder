@@ -1,0 +1,4 @@
+<script>alert("Payload injected successfully!")</script>
+<script>document.body.style.backgroundColor = "red";</script>
+<h1 style="color:white">Thanks for the passwords!</h1>
+<p> jk ;) </p>

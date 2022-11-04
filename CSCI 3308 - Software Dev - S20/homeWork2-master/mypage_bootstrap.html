@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        div {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+        </style>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>About Me.</title>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="mypage_bootstrap.html">
+      <img class="rounded-circle" src="resources/cu_boulder_logo.jpg" alt="" width="30" height="30">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        <a class="nav-link" href="mypage_bootstrap.html">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="signup-modal/login.html">Sign Up Modal</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="tic-tac-toe/tic-tac-toe.html">Tic Tac Toe Game</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+      </div>
+      </div>
+    </nav>
+
+  </head>
+  <body>
+    <h1>
+        Lima, Felipe
+        <small class="text-muted">- Software Development Methods and Tools</small>
+      </h1>
+      <div class="card">
+        <div class="card-body">
+            I am a Brazilian student of Computer Science at the Universtity of Colorado Boulder. 
+            Some of my hobbies include soccer, playing the guitar and snowboarding. I chose Computer
+            Science because as a kid I have always shown interestin computers and how they work.
+        </div>
+      </div>
+      <br>
+    <h2>My Professional Profile</h2>
+    <!-- <a href="https://github.com/felipeflima">Felipe's Github</a> -->
+    <a href="https://github.com/felipeflima" role="button" class="btn btn-outline-secondary" >Felipe's Github</a>
+    <br><br>
+    <img src="resources/felipe.JPG" class="rounded-circle" alt="An image of Felipe Lima" height="500px" width="320px"> 
+    <br><br>
+    <h3>My Favorite Projects</h3>
+    <br>
+    <table class="table table-bordered">
+		<thead>
+		  <tr>
+        <th rowspan="2" scope="col">#</th>
+			  <th rowspan="2" scope="col">Name of the Project</th>
+			  <th rowspan="2" scope="col">Technologies Used</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+        <th scope="row">1</th>
+			  <td scope="row">FreeDrop</td>
+			  <td>HTML, JavaScript, React</td>
+		  </tr>
+		  <tr>
+        <th scope="row">2</th>
+			  <td scope="row">Homework 1</td>
+			  <td>HTML, Bootstrap</td>
+		  </tr>
+		  <tr>
+        <th scope="row">3</th>
+			  <td scope="row">IdHub</td>
+			  <td>HTML, JavaScript, Bootstrap</td>
+		  </tr>
+		</tbody>
+	  </table>
+    <h3> My Interests
+      <a href="form.html" role="button" class="btn btn-info">Add Interest</a>
+    </h3> 
+    <div class="card-deck">
+        <div class="card" style="width: 18rem;" id="interest1">
+            <img class="card-img-top" src="resources/coding.jpg" alt="Coding image">
+            <div class="card-body">
+                <h5 class="card-title">Coding</h5>
+                <p class="card-text">I like coding because it is challenging!</p>
+            </div>
+            <button id="my_submit_button" class="btn btn-primary btn-block login-btn"
+              onClick="addCard()">Add card</button>
+              <script>
+                function addCard() 
+                {
+                  var tweet = $('<div class="card" > <img class="card-img-top" src="resources/tt.png" alt="Twitter logo"> <h5 class="card-title">Tweet</h5> <p class="card-text">Sample tweet will go here</p> </div>'); 
+                  tweet.appendTo('#interest1');
+                }
+              </script>
+        </div>
+        <div class="card" style="width: 18rem;" id="interest2">
+            <img class="card-img-top" src="resources/snowb.jpg" alt="Snowboarding image">
+            <div class="card-body">
+                <h5 class="card-title">Snowboarding</h5>
+                <p class="card-text">I like snowboarding because of the adrenaline!</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;" id="interest3">
+            <img class="card-img-top" src="resources/music2.jpg" alt="Music Image">
+            <div class="card-body">
+                <h5 class="card-title">Music</h5>
+                <p class="card-text">I like music because it is relaxing!</p>
+            </div>
+        </div>
+    </div>
+     
+      
+
+
+
+  </body>
+</html>

@@ -1,0 +1,5 @@
+Adi Shamir@2002
+Michael O Rabin@1976
+Marvin Minsky@1969
+Leslie Lamport@2013
+Tim Berners-Lee@2016

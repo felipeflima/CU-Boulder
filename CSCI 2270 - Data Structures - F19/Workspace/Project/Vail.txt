@@ -1,0 +1,100 @@
+Avanti Express Lift,Lift
+Wildwood Express,Lift
+Mountain Top Express,Lift
+High Noon Express,Lift
+Riva Bahn Express,Lift
+Game Creek Express,Lift
+Born Free Express,Lift
+Sun Up Express,Lift
+Highline Express,Lift
+Northwoods Express,Lift
+Gopher Hill,Lift
+Sourdough Express,Lift
+Little Eagle,Lift
+Golden Peak T-Bar,Lift
+Gondola One,Lift
+Eagle's Nest Carpet,Lift
+Eagle Bahn Gondola,Lift
+Cascade Village,Lift
+Orient Express Lift,Lift
+Mongolia Lift,Lift
+Wapiti,Lift
+Golden Peak Carpet,Lift
+Pride Express Lift,Lift
+Black Forest,Lift
+Golden Peak Carpet,Lift
+Golden Peak Carpet,Lift
+Lionshead Carpet,Lift
+Eagle's Nest Carpet,Lift
+Tea Cup Express,Lift
+SkyLine Express,Lift
+Earl's Express,Lift
+Pete's Express,Lift
+Boomer,Green Run
+Brisk Walk,Green Run
+Cold Feet,Green Run
+Flap Jack-Lower,Green Run
+Flap Jack-Upper,Green Run
+Gitalong Road,Green Run
+Gopher Hill,Green Run
+Grand Junction Catwalk,Green Run
+Mill Creek Road,Green Run
+Northface Catwalk - Upper,Green Run
+Overeasy,Green Run
+Riva Catwalk,Green Run
+Sourdough,Green Run
+Swingsville,Green Run
+The Meadows,Green Run
+Timberline Catwalk,Green Run
+Tin Pants,Green Run
+Transmontane,Green Run
+Vail Village Catwalk,Green Run
+Windisch Way,Green Run
+Avanti,Blue Run
+Bear Tree,Blue Run
+Ben's Face,Blue Run
+Cappuccino,Blue Run
+Choker Cutoff,Blue Run
+Christmas,Blue Run
+EpicMix Racing,Blue Run
+Highline Runout,Blue Run
+Hunky Dory,Blue Run
+Mid-Vail Express,Blue Run
+Northface Catwalk - Lower,Blue Run
+Northwoods,Blue Run
+Ramshorn,Blue Run
+Rngr Racoon,Blue Run
+Ruder's Run,Blue Run
+Skid Road,Blue Run
+Slifer Express,Blue Run
+Snag Park,Blue Run
+Spruce Face,Blue Run
+Timberline Face,Blue Run
+Whippersnapper,Blue Run
+Whiskey Jack,Blue Run
+Whistle Pig,Blue Run
+38,Black Run
+Blue Ox,Black Run
+Fall Line,Black Run
+First Step,Black Run
+Gandy Dancer,Black Run
+Golden Peak Race,Black Run
+Hairbag Alley,Black Run
+Klickity Klack,Black Run
+Log Chute,Black Run
+North Rim,Black Run
+Northstar,Black Run
+Prima,Black Run
+Slalom Alley,Black Run
+South Rim,Black Run
+Tourist Trap,Black Run
+Highline,Double Black Run
+Frontside Chutes,Double Black Run
+Mudslide,Double Black Run
+Prima Cornice,Double Black Run
+Pronto,Double Black Run
+Pumphouse,Double Black Run
+Roger's Run,Double Black Run
+The Narrows,Double Black Run
+Golden Peak Half Pipe,Terrain Park
+Golden Peak Terrain Park,Terrain Park

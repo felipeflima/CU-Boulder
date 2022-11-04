@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/rsc">
+        <file>Resources/background.png</file>
+        <file>Resources/card.png</file>
+        <file>Resources/cow.png</file>
+        <file>Resources/dog.png</file>
+        <file>Resources/farmer.png</file>
+        <file>Resources/pig.png</file>
+        <file>Resources/snake.png</file>
+        <file>Resources/farm.jpg</file>
+        <file>Resources/chicken.png</file>
+        <file>Resources/duck.png</file>
+        <file>Resources/sheep.png</file>
+        <file>Resources/horse.png</file>
+        <file>Resources/goat.png</file>
+    </qresource>
+</RCC>

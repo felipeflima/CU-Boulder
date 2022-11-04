@@ -1,0 +1,7 @@
+Given a singly-linked list class, add a C++ member function to create a new node after a node with a given key value.
+The value of the new node should be the sum of the values that are immediately before and immediately after the given node value.
+The function should be a void function and take in the following argument:
+
+value: integer to search for in the linked list
+
+You can assume the specified value will not be in the head or tail of the LL. Your function can assume only a single instance of the key in the linked list.

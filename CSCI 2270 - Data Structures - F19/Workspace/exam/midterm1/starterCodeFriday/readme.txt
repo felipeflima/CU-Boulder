@@ -1,0 +1,1 @@
+In the array problem, I tried to split the array and it seems to be working for the odd numbers, but the even ones, which have the same code, with the exception the remainder or the division by 2 being 0, it doesn’t work. 

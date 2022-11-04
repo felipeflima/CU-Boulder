@@ -1,0 +1,24 @@
+#include <iostream>
+
+1. What is a reference? What is a pointer? How are they different?
+
+2. Given the following class definition, how would you call the method CalculateMysteries?
+
+class Foo {
+public:
+  Foo(int bar) : bar_(bar) {}
+
+  int CalculateMysteries();
+
+  static int TotalBars();
+
+private:
+  int bar_;
+
+  static int baz_;
+};
+
+int main(){
+    Foo f(10);
+    f.CalculateMysteries();
+}

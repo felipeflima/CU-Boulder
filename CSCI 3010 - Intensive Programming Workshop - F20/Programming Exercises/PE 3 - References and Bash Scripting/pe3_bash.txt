@@ -1,0 +1,65 @@
+/* CSCI 3010 - IPW
+* Felipe Lima
+* Programming Exercise 3 - References and Bash scripting
+* 09/011/2020
+*/
+
+
+1. What is the bash command to show your terminal's working directory (current location)?
+    pwd
+
+2. How would you create an empty file called empty.txt from the command line?
+    touch empty.txt
+
+3. Using the ls command, how would you list all files beginning with empty in your current directory?
+        ls empty*
+
+4. Using the ls command, the wc command, and the |, how would you count the number of files ending in .txt in your current directory?
+ls *.txt | wc -l
+
+5. Using the echo command and > or >>, what is the command to write your name to empty.txt?
+    echo "Felipe Lima" >> empty.txt
+
+6. What is the bash command to rename that file to notempty.txt?
+    mv empty.txt notempty.txt
+
+7. What is the bash command to create a directory named pe3_bash?
+    mkdir pe3_bash
+
+8. What is the command to move your terminal's working directory to pe3_bash?
+    cd pe3_bash
+
+9. From the pe3_bash directory, how would you create a new directory, pe3_bash_number2 that has the same parent directory as pe3_bash?
+    mkdir ../pe3_bash_number2
+
+10. What is the command to move from pe3_bash to pe3_bash_number2 (use only one command)?
+    cd ../pe3_bah_number2
+
+11. What does pressing the up arrow key do?
+    shows the last command inputed in the terminal
+
+12. What does pressing the down arrow key do?
+    the down key is used to search through the command line arguments inputed previously -- opposite direction of the up arrow key
+
+13. What does pressing ctrl+r do?
+    search for a matching command previously typed in the terminal
+
+14. What are two different command-line based text editors (text editors that run from the command line and do not open a separate application)? (Answer the following questions for each editor that you have chosen.)
+    Vim and nano
+
+    a. What command do you use to open a file with this editor?
+        vim: vim filename
+        nano: nano filename
+
+    b. What command do you use to save a file while using this editor?
+        vim: :w
+        nano: ctrl + o
+
+    c. What command do you use to exit this editor?
+        vim: :q
+        nano: ctrl + x
+
+15. What are two reasons you might want to use the text editors listed above?
+    1. They integrate better with command line tools
+    2. Use less amount of system resoruces such as memory
+    3. Come with the computer

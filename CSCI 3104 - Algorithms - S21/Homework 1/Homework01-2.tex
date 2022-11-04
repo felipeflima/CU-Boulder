@@ -1,0 +1,453 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This is the "PREAMBLE". Here we define the type of document and load in any packages we might want. You can also set parameters %% % and create your own short-hand here.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \documentclass[9pt]{article}
+ 
+ \def\solutions{1}
+
+
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS \usepackage{tikz}
+ \usepackage{tikz}
+ \usepackage{tikzsymbols}
+ \usepackage{relsize}
+\usetikzlibrary{patterns,decorations.pathreplacing,shapes,arrows}
+ \usepackage{algorithm2e}
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 16.59cm
+ \textheight 25.94cm
+% \pagestyle{empty}        % Uncomment if don't want page numbers
+ \pagenumbering{gobble}
+ \parskip 7.2pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+% No date in header
+\date{}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\lstset{escapeinside={||},
+mathescape=true}
+
+
+
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\ls}{\left\{}
+\newcommand{\rs}{\right\}}
+\newcommand{\lbar}{\left|}
+\newcommand{\rbar}{\right|}
+\newcommand{\ld}{\left.}
+\newcommand{\rd}{\right.}
+
+\newcommand{\myexists}{\exists \hspace{.3mm}}
+
+\newcommand{\hs}{\hspace{.75mm}}
+\newcommand{\bs}{\hspace{-.75mm}}
+\newcommand{\nin}{\noindent}
+
+\newcommand{\fx}{f\bs\left( x \right)}
+\newcommand{\gx}{g\bs\left( x \right)}
+\newcommand{\qx}{q\bs\left( x \right)}
+
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\vfive}{\vspace{5mm}}
+\newcommand{\vthree}{\vspace{3mm}}
+
+\newcommand{\fof}[1]{f\lp #1\rp}
+\newcommand{\gof}[1]{g\lp #1\rp}
+\newcommand{\qof}[1]{q\lp #1\rp}
+
+\newcommand{\myp}[1]{\left( #1 \right)}
+\newcommand{\myb}[1]{\left[ #1 \right]}
+\newcommand{\mys}[1]{\left\{ #1 \right\}}
+\newcommand{\myab}[1]{\left| #1 \right|}
+
+\newcommand{\myj}{_j}
+\newcommand{\myjp}{_{j+1}}
+\newcommand{\myjm}{_{j-1}}
+
+\newcommand{\f}[1]{f\hspace{-1mm}\left( #1 \right)}
+\newcommand{\fp}[1]{f'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\g}[1]{g\hspace{-1mm}\left( #1 \right)}
+\newcommand{\gp}[1]{g'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\q}[1]{q\hspace{-1mm}\left( #1 \right)}
+\newcommand{\qp}[1]{q'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\Px}[1]{P\hspace{-1mm}\left( x_{#1} \right)}
+\newcommand{\Qx}[1]{Q\hspace{-1mm}\left( x_{#1} \right)}
+
+\newcommand{\tten}[1]{\times 10^{#1}}
+
+\newcommand{\aij}[1]{a_{#1}}
+\newcommand{\bij}[1]{b_{#1}}
+\newcommand{\rij}[1]{r_{#1}}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\newcommand{\ith}{i^{\textrm{th}}}
+\newcommand{\jth}{i^{\textrm{th}}}
+\newcommand{\kth}{i^{\textrm{th}}}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\xhat}{\hat{\mathbf{x}}}
+
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bsq}{\mathsmaller{\blacksquare}}
+
+\newcommand{\iter}[1]{^{\myp{#1}}}
+
+% matrix macro
+\newcommand{\mymat}[1]{
+\left[
+\begin{array}{rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+#1
+\end{array}
+\right]
+}
+
+\newcommand{\makenonemptybox}[2]{%
+%\par\nobreak\vspace{\ht\strutbox}\noindent
+\item[]
+\fbox{% added -2\fboxrule to specified width to avoid overfull hboxes
+% and removed the -2\fboxsep from height specification (image not updated)
+% because in MWE 2cm is should be height of contents excluding sep and frame
+\parbox[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+  \hrule width \hsize height 0pt
+  #2
+ }%
+}%
+\par\vspace{\ht\strutbox}
+}
+\makeatother
+
+\newcommand{\smallaug}[1]{
+\left[
+\begin{array}{rr|r}
+#1
+\end{array}
+\right]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% End of PREAMBLE
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% ======================================================================================
+% Actual document starts here. 
+% PLEASE FILL IN YOUR NAME AND STUDENT ID.
+% ======================================================================================
+\begin{document}
+
+\lhead{{\bf CSCI 3104, Algorithms \\ Problem Set 1 (50 points)} }
+\rhead{Name: \fbox{Felipe Lima} \\ ID: \fbox{10929055} \\ {\bf Due January 22, 2021 \\ Spring 2021, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textit{Advice 1}:\ For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+\vspace{-3mm} 
+
+\textit{Advice 2}:\ Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.\\
+\vspace{-3mm} 
+
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed} and we cannot accept hand-written solutions. \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{Here's a short intro to Latex.}
+	\item You should submit your work through \href{https://www.gradescope.com/courses/218966}{\textbf{Gradescope}} only.
+	\item The easiest way to access Gradescope is through our Canvas page. There is a Gradescope button in the left menu.
+	\item Gradescope will only accept \textbf{.pdf} files.
+	\item \href{https://www.youtube.com/watch?v=u-pK4GzpId0&feature=emb_logo}{It is vital that you match each problem part with your work.} Skip to 1:40 to just see the matching info.
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+\pagebreak
+
+
+
+\ben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%==============================================================================
+% Problem 1: Loop invariants and Induction Review
+%==============================================================================
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item
+
+\begin{enumerate}
+
+\item Identify and describe the components of a loop invariant proof.
+\item Identify and describe the components of a mathematical induction proof.
+\end{enumerate}
+
+  \if\solutions1
+  \vspace{2mm}
+  
+  \textbf{Solution:}  
+  %==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+
+\begin{enumerate}
+    \item .
+\begin{itemize}
+	\item \textbf{Initialization.} Loop invariant holds true prior to the first iteration of the loop.
+	\item \textbf{Maintenance.} If the loop invariant is true before the \textit{i}th iteration of the loop, it remains true before the iteration \textit{i} + 1.
+	\item \textbf{Termination.} When the loop terminates, the invariant gives us a useful property that helps show the correctness of the algorithm.
+\end{itemize}
+    \item .
+    
+    \begin{itemize}
+        \item \textbf{Statement of inductive intent.}
+        \item \textbf{Base Case.} Shows that the proposition holds for k = 0 (holds for a simple case).
+        \item \textbf{Inductive Hypotheses.} Assume that the proposition holds true for a particular value \textit{k}.
+        \item \textbf{Induction Step.} Prove from hyphoteses that if the proposition holds true for \textit{k}, it is also true for \textit{k + 1}.
+        \item \textbf{Conclusion.} State that based on base case and the inductive step, the proposition holds true for all values.
+    \end{itemize}
+
+\end{enumerate}
+
+
+
+\fi
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%==============================================================================
+% Problem 2: Identify Loop Invariant
+%==============================================================================
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vspace{5mm}
+\item
+Identify the loop invariant for the following algorithms.
+
+\begin{enumerate}
+\item 
+\begin{small}
+\begin{lstlisting}
+|\textbf{function}| Sum(|\textbf{A}|)
+    answer=0;
+    n=length(|\textbf{A}|);
+    |\textbf{for}| i=1 to n
+        answer += |\textbf{A}|[i]
+    |\textbf{end}|
+    |\textbf{return}| answer
+|\textbf{end}|
+\end{lstlisting}	
+\end{small}
+
+
+
+
+
+\item 
+\begin{small}
+\begin{lstlisting}
+|\textbf{function}| Reverse(|\textbf{A}|)
+    n=length(|\textbf{A}|)
+    i=ceiling(n/2)
+    j=ceiling(n/2) + (n+1) mod 2
+    |\textbf{while}| i>0 and j<=n
+        tmp=|\textbf{A}|[i]
+        |\textbf{A}|[i]=|\textbf{A}|[j]
+        |\textbf{A}|[j]=tmp
+        i=i-1
+        j=j+1
+    |\textbf{end}|
+|\textbf{end}|
+\end{lstlisting}	
+\end{small}
+
+\item 
+Assume that \textbf{A}  is sorted such that the largest value is at \textbf{A}[n].  Assume \textbf{A} contains the value \verb target .
+\begin{small}
+\begin{lstlisting}
+|\textbf{function}| Search(|\textbf{A}|,target) //returns the index of the value target
+    left=1
+    right=length(|\textbf{A}|)
+    |\textbf{while}| left <=right
+        m=floor((left+right)/2)
+        |\textbf{if} \textbf{A}|[m] < target
+            left=m+1
+        |\textbf{else if A}|[m]>target
+            right=m-1
+        |\textbf{else}|
+            |\textbf{return}| m
+        |\textbf{end}|
+    |\textbf{end}|
+|\textbf{end}|
+\end{lstlisting}
+\end{small}
+
+\end{enumerate}
+
+
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:} \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+
+\begin{enumerate}
+    \item At the start of each iteration of the for loop, the variable \textit{answer} is equal to the sum of all elements in the subarray $A[1 .. i-1]$.
+    \item At the start of each iteration of the while loop, $i$ is the $ceiling (n/2) - $ the number of iterations.
+    \item At the start of each iteration of the while loop, the variable $target$ is in the subarray $A[left..right]$.
+\end{enumerate}
+
+\fi
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%==============================================================================
+% Problem 3: Loop Invariant Proof
+%==============================================================================
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{5mm}
+
+\item 
+Prove the correctness of the following algorithm. (\textit{Hint: You need to prove the correctness of the inner loop before you can prove the correctness of the outer loop.})
+
+\begin{small}
+\begin{lstlisting}
+|\textbf{function}| Sort(|\textbf{A}|)
+    n=length(|\textbf{A}|) 
+    |\textbf{for}| i=1 to n
+        |\textbf{for}| j=2 to n
+            |\textbf{if}| |\textbf{A}|[j]<|\textbf{A}|[j-1]
+                swap(|\textbf{A}|[j],|\textbf{A}|[j-1]) //a function that swaps the elements in the array
+            |\textbf{end}|
+        |\textbf{end}|
+    |\textbf{end}|
+|\textbf{end}|
+\end{lstlisting}
+\end{small}
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:} \\ \\ 
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+Inner loop:
+\begin{itemize}
+    \item \textbf{Loop Invariant:} At the start of each iteration of the inner for loop, the subarray $A[j-1 .. j]$ is sorted.
+\end{itemize}
+
+Outter loop:
+\begin{itemize}
+    \item \textbf{Loop Invariant:} At the start of each iteration of the outter for loop, the subarray $A[1..i]$ is sorted.
+    \item \textbf{Initialization:} At the start of the first iteration of the outter for loop, where $i=1$, the subarray $A[1..i]$ is $A[1..1]$, which consists of one single element and is therefore sorted.
+    \item \textbf{Maintenance:} At the start of the $ith$ iteration, 
+    \item \textbf{Termination:} At th
+\end{itemize}
+
+\fi
+
+\newpage
+
+
+
+
+%==============================================================================
+% Problem 4: Induction Proofs
+%==============================================================================
+\vspace{5mm}
+
+\item
+
+
+
+\begin{enumerate}
+
+\item Suppose you have a whole chocolate bar composed of $n\geq 1$ individual pieces.  Prove that the minimum number of breaks to divide the chocolate bar into $n$ pieces is $n-1$. 
+
+\item{
+Show that for fibonacci numbers $\sum_{i=1}^n f_i^2 = f_{n}f_{n+1}$\\
+ Recall that the fibonacci numbers are defined as \\
+ $f_0 = 0,\ f_1=1$ \\
+ $\forall n>1$, $f_n=f_{n-1} + f_{n-2}$}
+ 
+\item For which nonnegative integers $n$ is $3n+2 \leq 2^n$? Prove your answer.
+
+\end{enumerate}
+
+\if\solutions1
+\vspace{3mm}
+
+{\bf Solution}: \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==================================================================
+
+
+\fi
+
+
+%========================================================================================================================
+
+\een 
+
+
+\end{document}

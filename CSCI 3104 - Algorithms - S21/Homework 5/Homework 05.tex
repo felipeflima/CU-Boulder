@@ -1,0 +1,510 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This is the "PREAMBLE". Here we define the type of document and load in any packages we might want. You can also set parameters %% % and create your own short-hand here.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \documentclass[9pt]{article}
+ 
+ \def\solutions{1}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\usepackage{hyperref} 
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS \usepackage{tikz}
+ \usepackage{tikz}
+ \usepackage{tikzsymbols}
+ \usepackage{relsize}
+ \usetikzlibrary{patterns,decorations.pathreplacing,shapes,arrows}
+ \usepackage{algorithm2e}
+ \topmargin -2.5cm        % read Lamport p.163
+ \oddsidemargin -0.04cm   % read Lamport p.163
+ \evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+ \textwidth 16.59cm
+ \textheight 25.94cm
+% \pagestyle{empty}        % Uncomment if don't want page numbers
+ \pagenumbering{gobble}
+ \parskip 7.2pt           % sets spacing between paragraphs
+ %\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+ \parindent 0pt		  % sets leading space for paragraphs
+
+% No date in header
+\date{}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headsep}{36pt}
+
+\usepackage{hyperref}
+\usepackage{forest}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+\newcommand{\ls}{\left\{}
+\newcommand{\rs}{\right\}}
+\newcommand{\lbar}{\left|}
+\newcommand{\rbar}{\right|}
+\newcommand{\ld}{\left.}
+\newcommand{\rd}{\right.}
+
+\newcommand{\myexists}{\exists \hspace{.3mm}}
+
+\newcommand{\hs}{\hspace{.75mm}}
+\newcommand{\bs}{\hspace{-.75mm}}
+\newcommand{\nin}{\noindent}
+
+\newcommand{\fx}{f\bs\left( x \right)}
+\newcommand{\gx}{g\bs\left( x \right)}
+\newcommand{\qx}{q\bs\left( x \right)}
+
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\vfive}{\vspace{5mm}}
+\newcommand{\vthree}{\vspace{3mm}}
+
+\newcommand{\fof}[1]{f\lp #1\rp}
+\newcommand{\gof}[1]{g\lp #1\rp}
+\newcommand{\qof}[1]{q\lp #1\rp}
+
+\newcommand{\myp}[1]{\left( #1 \right)}
+\newcommand{\myb}[1]{\left[ #1 \right]}
+\newcommand{\mys}[1]{\left\{ #1 \right\}}
+\newcommand{\myab}[1]{\left| #1 \right|}
+
+\newcommand{\myj}{_j}
+\newcommand{\myjp}{_{j+1}}
+\newcommand{\myjm}{_{j-1}}
+
+\newcommand{\f}[1]{f\hspace{-1mm}\left( #1 \right)}
+\newcommand{\fp}[1]{f'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\g}[1]{g\hspace{-1mm}\left( #1 \right)}
+\newcommand{\gp}[1]{g'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\q}[1]{q\hspace{-1mm}\left( #1 \right)}
+\newcommand{\qp}[1]{q'\hspace{-1mm}\left( #1 \right)}
+\newcommand{\Px}[1]{P\hspace{-1mm}\left( x_{#1} \right)}
+\newcommand{\Qx}[1]{Q\hspace{-1mm}\left( x_{#1} \right)}
+
+\newcommand{\tten}[1]{\times 10^{#1}}
+
+\newcommand{\aij}[1]{a_{#1}}
+\newcommand{\bij}[1]{b_{#1}}
+\newcommand{\rij}[1]{r_{#1}}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\newcommand{\ith}{i^{\textrm{th}}}
+\newcommand{\jth}{i^{\textrm{th}}}
+\newcommand{\kth}{i^{\textrm{th}}}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\xhat}{\hat{\mathbf{x}}}
+
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bsq}{\mathsmaller{\blacksquare}}
+
+\newcommand{\iter}[1]{^{\myp{#1}}}
+
+% matrix macro
+\newcommand{\mymat}[1]{
+\left[
+\begin{array}{rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+#1
+\end{array}
+\right]
+}
+
+\newcommand{\makenonemptybox}[2]{%
+%\par\nobreak\vspace{\ht\strutbox}\noindent
+\item[]
+\fbox{% added -2\fboxrule to specified width to avoid overfull hboxes
+% and removed the -2\fboxsep from height specification (image not updated)
+% because in MWE 2cm is should be height of contents excluding sep and frame
+\parbox[c][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+  \hrule width \hsize height 0pt
+  #2
+ }%
+}%
+\par\vspace{\ht\strutbox}
+}
+\makeatother
+
+\newcommand{\smallaug}[1]{
+\left[
+\begin{array}{rr|r}
+#1
+\end{array}
+\right]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% End of PREAMBLE
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% ======================================================================================
+% Actual document starts here. 
+% PLEASE FILL IN YOUR NAME AND STUDENT ID.
+% ======================================================================================
+\begin{document}
+
+\lhead{{\bf CSCI 3104, Algorithms \\ Problem Set 05 (50 points)} }
+\rhead{Name: \fbox{Felipe Lima} \\ ID: \fbox{109290055} \\ {\bf Due Feb 19, 2021 \\ Spring 2021, CU-Boulder}}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\phantom{Test}
+
+\begin{small}
+\textit{Advice 1}:\ For every problem in this class, you must justify your answer:\ show how you arrived at it and why it is correct. If there are assumptions you need to make along the way, state those clearly.
+\vspace{-3mm} 
+
+\textit{Advice 2}:\ Verbal reasoning is typically insufficient for full credit. Instead, write a logical argument, in the style of a mathematical proof.\\
+\vspace{-3mm} 
+
+\textbf{Instructions for submitting your solution}:
+\vspace{-5mm} 
+
+\begin{itemize}
+	\item The solutions \textbf{should be typed} and we cannot accept hand-written solutions. \href{http://ece.uprm.edu/~caceros/latex/introduction.pdf}{Here's a short intro to Latex.}
+	\item You should submit your work through \href{https://www.gradescope.com/courses/218966}{\textbf{Gradescope}} only.
+	\item The easiest way to access Gradescope is through our Canvas page. There is a Gradescope button in the left menu.
+	\item Gradescope will only accept \textbf{.pdf} files.
+	\item \href{https://www.youtube.com/watch?v=u-pK4GzpId0&feature=emb_logo}{It is vital that you match each problem part with your work.} Skip to 1:40 to just see the matching info.
+\end{itemize}
+\vspace{-4mm} 
+\end{small}
+
+\hrulefill
+\pagebreak
+
+
+
+\ben
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%==============================================================================
+% Problem 1:Topic 1
+%==============================================================================
+% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %% PROBLEM  ONE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item {\itshape (16 pts) Suppose in quicksort, we have access to an algorithm which chooses a pivot such that, the ratio of the size of the two subarrays divided by the pivot is a \textbf{constant} $k$. i.e an array of size $n$ is divided into two arrays, the first array is of size $n_1 = \frac{nk}{k+1}$ and the second array is of size $n_2 = \frac{n}{k+1}$ so that the ratio $\frac{n_1}{n_2} = k$ a constant. 
+	}
+	\begin{enumerate}%[label=(\alph)]
+	
+	\item{\itshape
+    (3 pts) Given an array, what value of $k$ will result in the best partitioning?}
+    
+    \item{\itshape
+    (10 pts) Write down a recurrence relation for this version of QuickSort, and solve it asymptotically using \textbf{recursion tree} method to come up with a big-O notation. For this part of the question assume $k= 3$. Show your work, write down the first few levels of the tree, identify the pattern and solve. Assume that the time it takes to find the pivot is $\Theta$(n) for lists of length $n$. Note: Remember that a big-O bound is just an upper bound. So come up with an expression and make arguments based on the big-O notation definition. }
+	
+	\item{ \itshape
+(3 pts) Does the value of $k$ affect the running time?}
+		\end{enumerate}
+  \if\solutions1
+  \vspace{2mm}
+  
+  \textbf{Solution:}   \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+\begin{enumerate}
+	\item The best possible partitioning would be if the array were divided into two subawarrays of the same length.
+	Meaning $n_1 = n_2$ and therefore $\frac{n_1}{n_2} = k = 1$. 
+
+	\textbf{The value of $k$ that would result in the best partitioning is $k=1$.}
+	\item Recurrence relation for this version of QuickSort:
+	$T(n) = T(\frac{nk}{k+1}) + T(\frac{n}{k+1}) + Cn$
+
+	If $k=3$
+
+	Recusion Tree:
+
+	\vspace{0.5cm}
+
+
+
+\begin{forest}
+	for tree={
+	  draw,
+	  align=center
+	}
+	[$n$
+	  [$\frac{3n}{4}$
+		[$\frac{3n}{4^2}$
+		  [...]
+		  [...]
+		]
+		[$\frac{3^2n}{4^2}$
+		  [...]
+		  [...]
+		]
+	  ]
+	  [$\frac{n}{4}$
+		[$\frac{n}{4^2}$
+		  [...]
+		  [...]
+		]
+		[$\frac{3n}{4^2}$
+		  [...]
+		  [...]
+		]
+	  ]
+	]
+  \end{forest}
+
+For $k_1: \frac{n}{\frac{4}{3}^{k_1}} = 1 \rightarrow \frac{4}{3}^{k_1} = n \rightarrow k_1 = log_{\frac{4}{3}}(n)$
+
+For $k_2: \frac{n}{4^{k_2}} = 1 \rightarrow 4^{k_2} = n \rightarrow k_2 = log_4(n)$
+
+$k_1 = log_{\frac{4}{3}}(n)$ \phantom{..................} $k_2 = log_4(n)$
+
+Since we have that $k_1 > k_2$
+
+
+$\therefore T(n) = O(nlog_{\frac{4}{3}})$
+
+\item The value of k does not affect the running time because for any value of $k$, it will be a constant. Therefore,  the function will be always asymptotically equal for any value of $k$.
+
+\end{enumerate}
+
+\fi
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%==============================================================================
+% Problem 2: Topic 2
+%==============================================================================
+% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %% PROBLEM TWO %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5mm}
+\item { \itshape 
+	    (10 pts) Consider a chaining hash table $A$ with $b$ slots that holds data from a fixed, finite universe $U$. }
+		\begin{enumerate}
+		\item {\itshape (3 pts) State the simple uniform hashing assumption. }
+		
+		\item {\itshape (7 pts) Consider the worst case analysis of hash tables. Suppose we start with an empty hash table, $A$. A \textbf{collision} occurs when an element is hashed into a slot where there is another element already. Assume that $|U|$ represents the size of the universe and $b$ represents the number of slots in the hash table. Let us assume that $|U|\le b$. Suppose we intend to insert $n$ elements into $A$ \textbf{Do not assume the simple uniform hashing assumption for this subproblem.}
+		\begin{enumerate}
+	      \item What is the worst case for the number of collisions? Express your answer in terms of $n$.
+	      \item What is the load factor for $A$ in the previous question?
+	      \item How long will a successful search take, on average? Give a big-Theta bound.
+	\end{enumerate}}
+		
+    \end{enumerate}
+\textbf{Solution:} \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+
+\begin{enumerate}
+	\item Simple uniform hasing assumption states that each of the hash slots has the same probability of being chosen. That is, there is a hash function that will uniformly distrubute all values into the hash table slots.
+	\item \phantom{.}
+		\begin{enumerate}
+			\item The worst case is if each of the $n$ items are assigned to the same bucket, meaning there are $n$ collisions and search takes $\Theta(n)$ time.
+			\item The load factor of a has table is (number or elements)/(number of slots) $\therefore$  the load factor for $A$ is $\frac{n}{b}$.
+			\item A successful search takes time $\Theta(1+\alpha)$, on average.
+		\end{enumerate}
+	\end{enumerate}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%==============================================================================
+% Problem 3: Topic 3
+%==============================================================================
+% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %% PROBLEM THREE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{5mm}
+
+\item { \itshape 
+	    (12 pts) Consider a hash table of size 100 with slots from 1 to 100. Consider the hash function $h(k) = \floor*{100k}$ for all keys $k$ for a table of size 100. You have three applications.
+	    \begin{itemize}
+	        \item \textbf{Application 1}: Keys are  generated uniformly at random from the interval $[0.3, 0.8]$.
+	        \item \textbf{Application 2}: Keys are  generated uniformly at random from the interval $[0.1, 0.4] \cup [0.6, 0.9]$.
+	        \item \textbf{Application 3}: Keys are  generated uniformly at random from the interval $[0, 1]$.
+	    \end{itemize}
+	}
+		\begin{enumerate}
+		\item {\itshape (3 pts) Suppose you have $n$ keys in total chosen for each application. What is the resulting load factor $\alpha$ for each application? }
+		
+		\item {\itshape (3 pts) Which application will yield the worst performance? }
+		
+		\item {\itshape (3 pts) Which application will yield the best performance? }
+		
+		\item {\itshape (3 pts) Which application will allow the uniform hashing property to apply? }
+		
+    \end{enumerate}
+\if\solutions1
+\vspace{2mm}
+
+
+
+
+\if\solutions1
+\vspace{2mm}
+
+
+
+
+\if\solutions1
+\vspace{2mm}
+
+\textbf{Solution:} \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+\begin{enumerate}
+    \item 
+        \textbf{Application 1:} \\
+        The keys can only be within the 30 to 80 interval, meaning there are 50 possible keys on this application\\
+		$\therefore \alpha = \frac{n}{50}$
+
+		\vspace{0.5cm}
+        \textbf{Application 2:} \\
+		The keys can only be within the 10 to 40 and 60 to 90 interval, meaning there are 60 possible keys on this application\\
+		$\therefore \alpha = \frac{n}{62}$
+
+		\vspace{0.5cm}
+        \textbf{Application 3:}\\
+		The keys can be within the 0 to 100 interval, meaning there are 100 possible keys on this application\\
+		$\therefore \alpha = \frac{n}{100}$
+
+    \item 
+        Application 1 will yield to the worst performance because it has the smallest range for key generation and the largest load factor.
+     
+    \item
+		Application 1 will yield to the best performance because it has the largest range for key generation and the smallest load factor.
+    
+    \item
+        Application 3 will allow the uniform hashing property to be applied because the key generation interval allows for every slots in the hashtable to have an equal chance to be picked.
+\end{enumerate}
+
+\fi
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %
+%==============================================================================
+% Problem 4: Root and Ratio Test Review
+%==============================================================================
+% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %% PROBLEM FOUR %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vspace{5mm}
+
+\item{\itshape (12 pts) Median of Medians Algorithm
+	}
+	\begin{enumerate}%[label=(\alph)]
+	
+	\item{\itshape
+    (4 pts) Illustrate how to apply the QuickSelect algorithm to find the $k = 4$th smallest element in the given array: \texttt{A = [5, 3, 4, 9, 2, 8, 1, 7, 6]} by showing the recursion call tree. Refer to  \href{https://canvas.colorado.edu/courses/69354/files/28668920?wrap=1}{Sam's Lecture 10} for notes on QuickSelect algorithm works }
+    
+    \item{\itshape
+    (4 pt) Explain in 2-3 sentences the purpose of the Median of Medians algorithm.}
+	
+	\item{ \itshape
+(4 pts)Consider applying Median of Medians algorithm (A Deterministic QuickSelect algorithm) to find the $4$th largest element in the following array: \texttt{A = [6, 10, 80, 18, 20, 82, 33, 35, 0, 31, 99, 22, 56, 3, 32, 73, 85, 29, 60, 68, 99, 23, 57, 72, 25]}.Illustrate how the algorithm would work for the first two recursive calls and indicate which sub array would the algorithm continue searching following the second recursion. Refer to \href{https://canvas.colorado.edu/courses/69354/files/28587193?wrap=1}{Rachel's Lecture 8} for notes on Median of Medians Algorithm}
+		\end{enumerate}
+\if\solutions1
+\vspace{3mm}
+{\bf Solution}: \\
+%==============================================================================
+% STUDENTS: TYPE YOUR SOLUTIONS HERE. (Between \textbf{Solution:} and \fi )
+%==============================================================================
+
+\begin{enumerate}
+    \item
+    Let $k$ be the index to be searched on the in the sorted array. Also, let pivot be the last element of the given array and let $p$ represent the Pivot Index.\\
+    Array: $A=[5, 3, 4, 9, 2, 8, 1, 7, 6]$\\
+    Left Subarray \phantom{..................} \phantom{..................} \phantom{..................} \phantom{..................} Right Subarray\\
+    
+    
+    $k=3$ and $p=5$ Move to left sub tree $k=3$\\
+    $Left A = [3,4,2,1]$ \phantom{..................} Using a $5$ as the pivot \phantom{..................} $Right A = [9,7,8]$ \\\\
+    
+    $k=3$ and $p=0$ Move to right sub tree $k=k-1=2$\\
+    $Left A = []$ \phantom{..............................} Using a $1$ as the pivot \phantom{..................} $Right A = [3,4,2,5]$\\\\
+    
+    $k=2$ and $p=4$ Move to left sub tree $k=2$\\
+    $Left A = [1,3,2,4]$ \phantom{..................} Using a $5$ as the pivot \phantom{..................} $Right A = []$\\\\
+    
+    $k=2$ and $p=1$ Move to right sub tree $k=k-1=1$\\
+    $Left A = [1]$ \phantom{.............................} Using a $2$ as the pivot \phantom{..................} $Right A = [4,3]$\\\\
+    
+     $k=1$ and $p=0$ Move to right sub tree $k=k-1=0$\\
+    $Left A = []$ \phantom{..............................} Pick a $3$ as the pivot \phantom{..................} $Right A = [4]$\\\\
+    
+     $k=0$ and $p=0$ Return the pivot value. (K+1)th min =4\\
+    $Left A = []$ \phantom{..............................} Pick a $4$ as the pivot \phantom{..................} $Right A = []$\\\\
+    Thus $4$ is the $4^{th}$ smallest element in the given array.\\
+    
+    \item 
+        The purpose of the median of medians algorithm is to find a pivot for the sorting algorithm that is not too far from the true median. By doing so, it reduces the worst-case complexity of a quickselect algorithm and builds an asymptotically optimal sorting algorithm.
+
+	\newpage
+	
+    \item
+        First step is to by divide the array into groups of five elements:\\
+        $$A_1 = [6,10,80,18,20], A_2=[82,33,35,0,31], A_3=[99,22,56,3,32], A_4=[73,85,29,60,68], A_5=[99,23,57,72,25]$$ \\
+        Then, sort each of the five groups: \\
+        $$A_1=[6,10,18,20,80] A_2= [0,31,33,35,82] A_3=[3,22,32,56,99] A_4=[29,60,68,73,85] A_5=[23,25,57,72,99]$$\\
+        Take the median of each group and put these values into a list $M$.\\
+        $$M=[18,33,32,68,57]$$ \\
+        Sort the list $M$: \\
+        $$M = [18,32,33,57,68]$$\\
+        Choose the median point of the $M$ list as the pivot: \\
+        $$P = 33$$\\
+        Place all the elements that are smaller than $P$ on the left and all elements that are greater than $P$ on the right. We then get a list A: \\
+        $$A=[6,10,18,20,0,31,3,22,32,29,23,25,33,80,35,82,56,99,60,68,73,85,57,72,99]$$\\
+        Select all the elements greater than 33 and create a list out of them. Then sort this list. We then have: \\
+        $$A''= [35,56,57,60,68,72,73,80,82,85,99,99]$$\\
+        Then we have that the $4^{th}$ largest value is 82.
+        
+\end{enumerate}
+
+\fi
+
+
+%========================================================================================================================
+
+\een 
+
+
+\end{document}
